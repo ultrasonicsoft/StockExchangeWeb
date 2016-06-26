@@ -318,6 +318,10 @@ namespace StockExchangeWeb.StockExchangeService {
         // CODEGEN: Generating message contract since element name newPortfolio from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreatePortfolio", ReplyAction="*")]
         StockExchangeWeb.StockExchangeService.CreatePortfolioResponse CreatePortfolio(StockExchangeWeb.StockExchangeService.CreatePortfolioRequest request);
+        
+        // CODEGEN: Generating message contract since element name userName from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllPortfolios", ReplyAction="*")]
+        StockExchangeWeb.StockExchangeService.GetAllPortfoliosResponse GetAllPortfolios(StockExchangeWeb.StockExchangeService.GetAllPortfoliosRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -657,6 +661,74 @@ namespace StockExchangeWeb.StockExchangeService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetAllPortfoliosRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAllPortfolios", Namespace="http://tempuri.org/", Order=0)]
+        public StockExchangeWeb.StockExchangeService.GetAllPortfoliosRequestBody Body;
+        
+        public GetAllPortfoliosRequest() {
+        }
+        
+        public GetAllPortfoliosRequest(StockExchangeWeb.StockExchangeService.GetAllPortfoliosRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetAllPortfoliosRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string userName;
+        
+        public GetAllPortfoliosRequestBody() {
+        }
+        
+        public GetAllPortfoliosRequestBody(string userName) {
+            this.userName = userName;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetAllPortfoliosResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAllPortfoliosResponse", Namespace="http://tempuri.org/", Order=0)]
+        public StockExchangeWeb.StockExchangeService.GetAllPortfoliosResponseBody Body;
+        
+        public GetAllPortfoliosResponse() {
+        }
+        
+        public GetAllPortfoliosResponse(StockExchangeWeb.StockExchangeService.GetAllPortfoliosResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetAllPortfoliosResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public StockExchangeWeb.StockExchangeService.Portfolio[] GetAllPortfoliosResult;
+        
+        public GetAllPortfoliosResponseBody() {
+        }
+        
+        public GetAllPortfoliosResponseBody(StockExchangeWeb.StockExchangeService.Portfolio[] GetAllPortfoliosResult) {
+            this.GetAllPortfoliosResult = GetAllPortfoliosResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface StockExchangeServiceSoapChannel : StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -747,6 +819,19 @@ namespace StockExchangeWeb.StockExchangeService {
             inValue.Body.newPortfolio = newPortfolio;
             StockExchangeWeb.StockExchangeService.CreatePortfolioResponse retVal = ((StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap)(this)).CreatePortfolio(inValue);
             return retVal.Body.CreatePortfolioResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        StockExchangeWeb.StockExchangeService.GetAllPortfoliosResponse StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap.GetAllPortfolios(StockExchangeWeb.StockExchangeService.GetAllPortfoliosRequest request) {
+            return base.Channel.GetAllPortfolios(request);
+        }
+        
+        public StockExchangeWeb.StockExchangeService.Portfolio[] GetAllPortfolios(string userName) {
+            StockExchangeWeb.StockExchangeService.GetAllPortfoliosRequest inValue = new StockExchangeWeb.StockExchangeService.GetAllPortfoliosRequest();
+            inValue.Body = new StockExchangeWeb.StockExchangeService.GetAllPortfoliosRequestBody();
+            inValue.Body.userName = userName;
+            StockExchangeWeb.StockExchangeService.GetAllPortfoliosResponse retVal = ((StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap)(this)).GetAllPortfolios(inValue);
+            return retVal.Body.GetAllPortfoliosResult;
         }
     }
 }

@@ -124,6 +124,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\StockExchangeService\StockExchangeService.wsdl" />
+    <Content Include="Service References\StockExchangeService\StockExchangeWeb.StockExchangeService.Portfolio.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

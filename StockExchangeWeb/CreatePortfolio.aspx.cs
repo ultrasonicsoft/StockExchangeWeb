@@ -20,83 +20,122 @@ namespace StockExchangeWeb
 
         private void LoadAllStocks()
         {
-            var service = new StockExchangeService.StockExchangeServiceSoapClient();
-            var allStocks = service.GetAllStock().ToList();
-            ddlAllStocks.DataTextField = "Code";
-            ddlAllStocks.DataValueField = "Code";
-            ddlAllStocks.DataSource = allStocks;
-            ddlAllStocks.DataBind();
+            try
+            {
+                var service = new StockExchangeService.StockExchangeServiceSoapClient();
+                var allStocks = service.GetAllStock().ToList();
+                ddlAllStocks.DataTextField = "Code";
+                ddlAllStocks.DataValueField = "Code";
+                ddlAllStocks.DataSource = allStocks;
+                ddlAllStocks.DataBind();
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+
         }
 
         protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            try
             {
-                string item = e.Row.Cells[0].Text;
-                foreach (Button button in e.Row.Cells[3].Controls.OfType<Button>())
+                if (e.Row.RowType == DataControlRowType.DataRow)
                 {
-                    if (button.CommandName == "Delete")
+                    string item = e.Row.Cells[0].Text;
+                    foreach (Button button in e.Row.Cells[3].Controls.OfType<Button>())
                     {
-                        button.Attributes["onclick"] = "if(!confirm('Do you want to delete " + item + "?')){ return false; };";
+                        if (button.CommandName == "Delete")
+                        {
+                            button.Attributes["onclick"] = "if(!confirm('Do you want to delete " + item + "?')){ return false; };";
+                        }
                     }
                 }
             }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+
         }
 
         protected void btnAddStock_Click(object sender, EventArgs e)
         {
-            var service = new StockExchangeService.StockExchangeServiceSoapClient();
-            var allStocks = service.GetAllStock().ToList();
-
-            var selectedStockCode = ddlAllStocks.SelectedItem;
-            var selectedStock = allStocks.FirstOrDefault(x => x.Code == selectedStockCode.ToString());
-            if (selectedStock == null)
+            try
             {
-                return;
-            }
+                var service = new StockExchangeService.StockExchangeServiceSoapClient();
+                var allStocks = service.GetAllStock().ToList();
 
-            var portfolioStocks = Session["portfolioStocks"] as List<Stock> ?? new List<Stock>();
-            if (portfolioStocks.FirstOrDefault(x=>x.Code == selectedStock.Code) != null)
+                var selectedStockCode = ddlAllStocks.SelectedItem;
+                var selectedStock = allStocks.FirstOrDefault(x => x.Code == selectedStockCode.ToString());
+                if (selectedStock == null)
+                {
+                    return;
+                }
+
+                var portfolioStocks = Session["portfolioStocks"] as List<Stock> ?? new List<Stock>();
+                if (portfolioStocks.FirstOrDefault(x => x.Code == selectedStock.Code) != null)
+                {
+                    return;
+                }
+                portfolioStocks.Add(selectedStock);
+
+                gdvPortfolioStocks.DataSource = portfolioStocks;
+                gdvPortfolioStocks.DataBind();
+
+                Session["portfolioStocks"] = portfolioStocks;
+            }
+            catch (Exception exception)
             {
-                return;
+                throw exception;
             }
-            portfolioStocks.Add(selectedStock);
-
-            gdvPortfolioStocks.DataSource = portfolioStocks;
-            gdvPortfolioStocks.DataBind();
-
-            Session["portfolioStocks"] = portfolioStocks;
         }
 
         protected void OnRowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int index = Convert.ToInt32(e.RowIndex);
-            var portfolioStocks = Session["portfolioStocks"] as List<Stock> ?? new List<Stock>();
-            portfolioStocks.RemoveAt(index);
-            gdvPortfolioStocks.DataSource = portfolioStocks;
-            gdvPortfolioStocks.DataBind();
-            Session["portfolioStocks"] = portfolioStocks;
+            try
+            {
+                var index = Convert.ToInt32(e.RowIndex);
+                var portfolioStocks = Session["portfolioStocks"] as List<Stock> ?? new List<Stock>();
+                portfolioStocks.RemoveAt(index);
+                gdvPortfolioStocks.DataSource = portfolioStocks;
+                gdvPortfolioStocks.DataBind();
+                Session["portfolioStocks"] = portfolioStocks;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
         }
 
         protected void Save_Click(object sender, EventArgs e)
         {
-            var portfolioStocks = Session["portfolioStocks"] as List<Stock>;
-            if (portfolioStocks == null)
+            try
             {
-                return;
-            }
+                var portfolioStocks = Session["portfolioStocks"] as List<Stock>;
+                if (portfolioStocks == null)
+                {
+                    return;
+                }
 
-            StockExchangeService.Portfolio newPortfolio = new StockExchangeService.Portfolio();
-            newPortfolio.Name = PortfolioName.Text;
-            newPortfolio.UserId = HttpContext.Current.User.Identity.Name;
-            newPortfolio.StockIds = new ArrayOfInt();
-            foreach (var portfolioStock in portfolioStocks)
+                var newPortfolio = new StockExchangeService.Portfolio
+                {
+                    Name = PortfolioName.Text,
+                    UserId = HttpContext.Current.User.Identity.Name,
+                    StockIds = new ArrayOfInt()
+                };
+                foreach (var portfolioStock in portfolioStocks)
+                {
+                    newPortfolio.StockIds.Add(portfolioStock.Id);
+                }
+
+                var service = new StockExchangeService.StockExchangeServiceSoapClient();
+                service.CreatePortfolio(newPortfolio);
+            }
+            catch (Exception exception)
             {
-                newPortfolio.StockIds.Add(portfolioStock.Id);
+                throw exception;
             }
-
-            var service = new StockExchangeService.StockExchangeServiceSoapClient();
-            service.CreatePortfolio(newPortfolio);
         }
     }
 }

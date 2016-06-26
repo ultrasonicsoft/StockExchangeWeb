@@ -12,10 +12,10 @@
         <table>
             <tr>
                 <td>
-                    <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlAllPortfolio" runat="server"></asp:DropDownList>
                 </td>
                 <td>
-                    <asp:Button ID="Button1" runat="server" Text="Load portfolio"/>
+                    <asp:Button ID="LoadPortfolio" runat="server" Text="Load portfolio" OnClick="LoadPortfolio_Click"/>
                 </td>
             </tr>
              <tr>
