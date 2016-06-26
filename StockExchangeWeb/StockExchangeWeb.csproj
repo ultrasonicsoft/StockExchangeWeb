@@ -56,8 +56,10 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CreatePortfolio.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Logon.aspx" />
+    <Content Include="Portfolio.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -75,6 +77,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreatePortfolio.aspx.cs">
+      <DependentUpon>CreatePortfolio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreatePortfolio.aspx.designer.cs">
+      <DependentUpon>CreatePortfolio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -88,6 +97,13 @@
     </Compile>
     <Compile Include="Logon.aspx.designer.cs">
       <DependentUpon>Logon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Portfolio.aspx.cs">
+      <DependentUpon>Portfolio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Portfolio.aspx.designer.cs">
+      <DependentUpon>Portfolio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">

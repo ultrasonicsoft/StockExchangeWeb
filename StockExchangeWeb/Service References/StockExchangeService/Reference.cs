@@ -196,6 +196,105 @@ namespace StockExchangeWeb.StockExchangeService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Portfolio", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Portfolio : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StockExchangeWeb.StockExchangeService.ArrayOfInt StockIdsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserIdField, value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public StockExchangeWeb.StockExchangeService.ArrayOfInt StockIds {
+            get {
+                return this.StockIdsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StockIdsField, value) != true)) {
+                    this.StockIdsField = value;
+                    this.RaisePropertyChanged("StockIds");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfInt", Namespace="http://tempuri.org/", ItemName="int")]
+    [System.SerializableAttribute()]
+    public class ArrayOfInt : System.Collections.Generic.List<int> {
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="StockExchangeService.StockExchangeServiceSoap")]
     public interface StockExchangeServiceSoap {
@@ -215,6 +314,10 @@ namespace StockExchangeWeb.StockExchangeService {
         // CODEGEN: Generating message contract since element name newUser from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SignUp", ReplyAction="*")]
         StockExchangeWeb.StockExchangeService.SignUpResponse SignUp(StockExchangeWeb.StockExchangeService.SignUpRequest request);
+        
+        // CODEGEN: Generating message contract since element name newPortfolio from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreatePortfolio", ReplyAction="*")]
+        StockExchangeWeb.StockExchangeService.CreatePortfolioResponse CreatePortfolio(StockExchangeWeb.StockExchangeService.CreatePortfolioRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -486,6 +589,74 @@ namespace StockExchangeWeb.StockExchangeService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class CreatePortfolioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="CreatePortfolio", Namespace="http://tempuri.org/", Order=0)]
+        public StockExchangeWeb.StockExchangeService.CreatePortfolioRequestBody Body;
+        
+        public CreatePortfolioRequest() {
+        }
+        
+        public CreatePortfolioRequest(StockExchangeWeb.StockExchangeService.CreatePortfolioRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class CreatePortfolioRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public StockExchangeWeb.StockExchangeService.Portfolio newPortfolio;
+        
+        public CreatePortfolioRequestBody() {
+        }
+        
+        public CreatePortfolioRequestBody(StockExchangeWeb.StockExchangeService.Portfolio newPortfolio) {
+            this.newPortfolio = newPortfolio;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class CreatePortfolioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="CreatePortfolioResponse", Namespace="http://tempuri.org/", Order=0)]
+        public StockExchangeWeb.StockExchangeService.CreatePortfolioResponseBody Body;
+        
+        public CreatePortfolioResponse() {
+        }
+        
+        public CreatePortfolioResponse(StockExchangeWeb.StockExchangeService.CreatePortfolioResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class CreatePortfolioResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool CreatePortfolioResult;
+        
+        public CreatePortfolioResponseBody() {
+        }
+        
+        public CreatePortfolioResponseBody(bool CreatePortfolioResult) {
+            this.CreatePortfolioResult = CreatePortfolioResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface StockExchangeServiceSoapChannel : StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -563,6 +734,19 @@ namespace StockExchangeWeb.StockExchangeService {
             inValue.Body.newUser = newUser;
             StockExchangeWeb.StockExchangeService.SignUpResponse retVal = ((StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap)(this)).SignUp(inValue);
             return retVal.Body.SignUpResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        StockExchangeWeb.StockExchangeService.CreatePortfolioResponse StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap.CreatePortfolio(StockExchangeWeb.StockExchangeService.CreatePortfolioRequest request) {
+            return base.Channel.CreatePortfolio(request);
+        }
+        
+        public bool CreatePortfolio(StockExchangeWeb.StockExchangeService.Portfolio newPortfolio) {
+            StockExchangeWeb.StockExchangeService.CreatePortfolioRequest inValue = new StockExchangeWeb.StockExchangeService.CreatePortfolioRequest();
+            inValue.Body = new StockExchangeWeb.StockExchangeService.CreatePortfolioRequestBody();
+            inValue.Body.newPortfolio = newPortfolio;
+            StockExchangeWeb.StockExchangeService.CreatePortfolioResponse retVal = ((StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap)(this)).CreatePortfolio(inValue);
+            return retVal.Body.CreatePortfolioResult;
         }
     }
 }

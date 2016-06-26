@@ -10,78 +10,60 @@
 namespace StockExchangeWeb {
     
     
-    public partial class _Default {
+    public partial class Portfolio {
         
         /// <summary>
-        /// WelcomeMessage control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink WelcomeMessage;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Form1 control.
+        /// DropDownList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// StockPriceRefreshTimer control.
+        /// ddlAllStocks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.Timer StockPriceRefreshTimer;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAllStocks;
         
         /// <summary>
-        /// StockSymbol control.
+        /// btnAddStock control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox StockSymbol;
+        protected global::System.Web.UI.WebControls.Button btnAddStock;
         
         /// <summary>
-        /// GetStockPrice control.
+        /// gdvPortfolioStocks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button GetStockPrice;
-        
-        /// <summary>
-        /// lblStockPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStockPrice;
-        
-        /// <summary>
-        /// gdvAllStocks control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvAllStocks;
+        protected global::System.Web.UI.WebControls.GridView gdvPortfolioStocks;
     }
 }

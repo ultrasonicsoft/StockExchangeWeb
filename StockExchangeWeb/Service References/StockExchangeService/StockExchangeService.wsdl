@@ -76,6 +76,33 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="CreatePortfolio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="newPortfolio" type="tns:Portfolio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Portfolio">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StockIds" type="tns:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreatePortfolioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreatePortfolioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetAllStockSoapIn">
@@ -102,6 +129,12 @@
   <wsdl:message name="SignUpSoapOut">
     <wsdl:part name="parameters" element="tns:SignUpResponse" />
   </wsdl:message>
+  <wsdl:message name="CreatePortfolioSoapIn">
+    <wsdl:part name="parameters" element="tns:CreatePortfolio" />
+  </wsdl:message>
+  <wsdl:message name="CreatePortfolioSoapOut">
+    <wsdl:part name="parameters" element="tns:CreatePortfolioResponse" />
+  </wsdl:message>
   <wsdl:portType name="StockExchangeServiceSoap">
     <wsdl:operation name="GetAllStock">
       <wsdl:input message="tns:GetAllStockSoapIn" />
@@ -118,6 +151,10 @@
     <wsdl:operation name="SignUp">
       <wsdl:input message="tns:SignUpSoapIn" />
       <wsdl:output message="tns:SignUpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePortfolio">
+      <wsdl:input message="tns:CreatePortfolioSoapIn" />
+      <wsdl:output message="tns:CreatePortfolioSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="StockExchangeServiceSoap" type="tns:StockExchangeServiceSoap">
@@ -158,6 +195,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CreatePortfolio">
+      <soap:operation soapAction="http://tempuri.org/CreatePortfolio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="StockExchangeServiceSoap12" type="tns:StockExchangeServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -190,6 +236,15 @@
     </wsdl:operation>
     <wsdl:operation name="SignUp">
       <soap12:operation soapAction="http://tempuri.org/SignUp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePortfolio">
+      <soap12:operation soapAction="http://tempuri.org/CreatePortfolio" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
