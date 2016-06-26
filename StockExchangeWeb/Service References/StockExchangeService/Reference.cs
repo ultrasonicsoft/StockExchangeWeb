@@ -111,6 +111,14 @@ namespace StockExchangeWeb.StockExchangeService {
         // CODEGEN: Generating message contract since element name GetAllStockResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllStock", ReplyAction="*")]
         StockExchangeWeb.StockExchangeService.GetAllStockResponse GetAllStock(StockExchangeWeb.StockExchangeService.GetAllStockRequest request);
+        
+        // CODEGEN: Generating message contract since element name stockCode from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetStockPrice", ReplyAction="*")]
+        StockExchangeWeb.StockExchangeService.GetStockPriceResponse GetStockPrice(StockExchangeWeb.StockExchangeService.GetStockPriceRequest request);
+        
+        // CODEGEN: Generating message contract since element name userName from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Logon", ReplyAction="*")]
+        StockExchangeWeb.StockExchangeService.LogonResponse Logon(StockExchangeWeb.StockExchangeService.LogonRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -174,6 +182,146 @@ namespace StockExchangeWeb.StockExchangeService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetStockPriceRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetStockPrice", Namespace="http://tempuri.org/", Order=0)]
+        public StockExchangeWeb.StockExchangeService.GetStockPriceRequestBody Body;
+        
+        public GetStockPriceRequest() {
+        }
+        
+        public GetStockPriceRequest(StockExchangeWeb.StockExchangeService.GetStockPriceRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetStockPriceRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string stockCode;
+        
+        public GetStockPriceRequestBody() {
+        }
+        
+        public GetStockPriceRequestBody(string stockCode) {
+            this.stockCode = stockCode;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetStockPriceResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetStockPriceResponse", Namespace="http://tempuri.org/", Order=0)]
+        public StockExchangeWeb.StockExchangeService.GetStockPriceResponseBody Body;
+        
+        public GetStockPriceResponse() {
+        }
+        
+        public GetStockPriceResponse(StockExchangeWeb.StockExchangeService.GetStockPriceResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetStockPriceResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public double GetStockPriceResult;
+        
+        public GetStockPriceResponseBody() {
+        }
+        
+        public GetStockPriceResponseBody(double GetStockPriceResult) {
+            this.GetStockPriceResult = GetStockPriceResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class LogonRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Logon", Namespace="http://tempuri.org/", Order=0)]
+        public StockExchangeWeb.StockExchangeService.LogonRequestBody Body;
+        
+        public LogonRequest() {
+        }
+        
+        public LogonRequest(StockExchangeWeb.StockExchangeService.LogonRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class LogonRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string userName;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string password;
+        
+        public LogonRequestBody() {
+        }
+        
+        public LogonRequestBody(string userName, string password) {
+            this.userName = userName;
+            this.password = password;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class LogonResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="LogonResponse", Namespace="http://tempuri.org/", Order=0)]
+        public StockExchangeWeb.StockExchangeService.LogonResponseBody Body;
+        
+        public LogonResponse() {
+        }
+        
+        public LogonResponse(StockExchangeWeb.StockExchangeService.LogonResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class LogonResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool LogonResult;
+        
+        public LogonResponseBody() {
+        }
+        
+        public LogonResponseBody(bool LogonResult) {
+            this.LogonResult = LogonResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface StockExchangeServiceSoapChannel : StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -211,6 +359,33 @@ namespace StockExchangeWeb.StockExchangeService {
             inValue.Body = new StockExchangeWeb.StockExchangeService.GetAllStockRequestBody();
             StockExchangeWeb.StockExchangeService.GetAllStockResponse retVal = ((StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap)(this)).GetAllStock(inValue);
             return retVal.Body.GetAllStockResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        StockExchangeWeb.StockExchangeService.GetStockPriceResponse StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap.GetStockPrice(StockExchangeWeb.StockExchangeService.GetStockPriceRequest request) {
+            return base.Channel.GetStockPrice(request);
+        }
+        
+        public double GetStockPrice(string stockCode) {
+            StockExchangeWeb.StockExchangeService.GetStockPriceRequest inValue = new StockExchangeWeb.StockExchangeService.GetStockPriceRequest();
+            inValue.Body = new StockExchangeWeb.StockExchangeService.GetStockPriceRequestBody();
+            inValue.Body.stockCode = stockCode;
+            StockExchangeWeb.StockExchangeService.GetStockPriceResponse retVal = ((StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap)(this)).GetStockPrice(inValue);
+            return retVal.Body.GetStockPriceResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        StockExchangeWeb.StockExchangeService.LogonResponse StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap.Logon(StockExchangeWeb.StockExchangeService.LogonRequest request) {
+            return base.Channel.Logon(request);
+        }
+        
+        public bool Logon(string userName, string password) {
+            StockExchangeWeb.StockExchangeService.LogonRequest inValue = new StockExchangeWeb.StockExchangeService.LogonRequest();
+            inValue.Body = new StockExchangeWeb.StockExchangeService.LogonRequestBody();
+            inValue.Body.userName = userName;
+            inValue.Body.password = password;
+            StockExchangeWeb.StockExchangeService.LogonResponse retVal = ((StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap)(this)).Logon(inValue);
+            return retVal.Body.LogonResult;
         }
     }
 }

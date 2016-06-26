@@ -17,8 +17,9 @@ namespace StockExchangeWeb
 
         protected void Logon_Click(object sender, EventArgs e)
         {
-            if ((UserEmail.Text == "balramchavan@gmail.com") &&
-           (UserPass.Text == "password"))
+            StockExchangeService.StockExchangeServiceSoapClient service = new StockExchangeService.StockExchangeServiceSoapClient();
+            var isAuthenticated = service.Logon(UserEmail.Text, UserPass.Text);
+            if (isAuthenticated)
             {
                 FormsAuthentication.RedirectFromLoginPage
                    (UserEmail.Text, Persist.Checked);

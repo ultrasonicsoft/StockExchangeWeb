@@ -25,6 +25,35 @@
           <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:double" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GetStockPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="stockCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStockPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetStockPriceResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Logon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LogonResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetAllStockSoapIn">
@@ -33,10 +62,30 @@
   <wsdl:message name="GetAllStockSoapOut">
     <wsdl:part name="parameters" element="tns:GetAllStockResponse" />
   </wsdl:message>
+  <wsdl:message name="GetStockPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStockPrice" />
+  </wsdl:message>
+  <wsdl:message name="GetStockPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStockPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogonSoapIn">
+    <wsdl:part name="parameters" element="tns:Logon" />
+  </wsdl:message>
+  <wsdl:message name="LogonSoapOut">
+    <wsdl:part name="parameters" element="tns:LogonResponse" />
+  </wsdl:message>
   <wsdl:portType name="StockExchangeServiceSoap">
     <wsdl:operation name="GetAllStock">
       <wsdl:input message="tns:GetAllStockSoapIn" />
       <wsdl:output message="tns:GetAllStockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStockPrice">
+      <wsdl:input message="tns:GetStockPriceSoapIn" />
+      <wsdl:output message="tns:GetStockPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logon">
+      <wsdl:input message="tns:LogonSoapIn" />
+      <wsdl:output message="tns:LogonSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="StockExchangeServiceSoap" type="tns:StockExchangeServiceSoap">
@@ -50,11 +99,47 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetStockPrice">
+      <soap:operation soapAction="http://tempuri.org/GetStockPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logon">
+      <soap:operation soapAction="http://tempuri.org/Logon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="StockExchangeServiceSoap12" type="tns:StockExchangeServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetAllStock">
       <soap12:operation soapAction="http://tempuri.org/GetAllStock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockPrice">
+      <soap12:operation soapAction="http://tempuri.org/GetStockPrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logon">
+      <soap12:operation soapAction="http://tempuri.org/Logon" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
