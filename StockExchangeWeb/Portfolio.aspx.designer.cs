@@ -40,24 +40,6 @@ namespace StockExchangeWeb {
         protected global::System.Web.UI.WebControls.Button LoadPortfolio;
         
         /// <summary>
-        /// ddlAllStocks control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAllStocks;
-        
-        /// <summary>
-        /// btnAddStock control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddStock;
-        
-        /// <summary>
         /// gdvPortfolioStocks control.
         /// </summary>
         /// <remarks>

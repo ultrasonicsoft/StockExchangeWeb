@@ -19,14 +19,6 @@
                 </td>
             </tr>
              <tr>
-                <td>
-                    <asp:DropDownList ID="ddlAllStocks" runat="server"></asp:DropDownList>
-                </td>
-                <td>
-                    <asp:Button ID="btnAddStock" runat="server" Text="Add stock to portfolio"/>
-                </td>
-            </tr>
-             <tr>
                 <td colspan="2">
                     <asp:GridView ID="gdvPortfolioStocks" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" EnableModelValidation="True" ForeColor="Black" GridLines="Horizontal">
                         <FooterStyle BackColor="#CCCC99" ForeColor="Black" />

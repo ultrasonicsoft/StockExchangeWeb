@@ -25,6 +25,14 @@
           <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:double" />
         </s:sequence>
       </s:complexType>
+      <s:element name="AuthSoapHd" type="tns:AuthSoapHd" />
+      <s:complexType name="AuthSoapHd">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strPassword" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
       <s:element name="GetStockPrice">
         <s:complexType>
           <s:sequence>
@@ -122,6 +130,20 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="Portfolio" nillable="true" type="tns:Portfolio" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GetPortfolioDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="portfolioId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPortfolioDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPortfolioDetailsResult" type="tns:ArrayOfStock" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetAllStockSoapIn">
@@ -130,11 +152,17 @@
   <wsdl:message name="GetAllStockSoapOut">
     <wsdl:part name="parameters" element="tns:GetAllStockResponse" />
   </wsdl:message>
+  <wsdl:message name="GetAllStockAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
   <wsdl:message name="GetStockPriceSoapIn">
     <wsdl:part name="parameters" element="tns:GetStockPrice" />
   </wsdl:message>
   <wsdl:message name="GetStockPriceSoapOut">
     <wsdl:part name="parameters" element="tns:GetStockPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStockPriceAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
   </wsdl:message>
   <wsdl:message name="LogonSoapIn">
     <wsdl:part name="parameters" element="tns:Logon" />
@@ -154,11 +182,26 @@
   <wsdl:message name="CreatePortfolioSoapOut">
     <wsdl:part name="parameters" element="tns:CreatePortfolioResponse" />
   </wsdl:message>
+  <wsdl:message name="CreatePortfolioAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
   <wsdl:message name="GetAllPortfoliosSoapIn">
     <wsdl:part name="parameters" element="tns:GetAllPortfolios" />
   </wsdl:message>
   <wsdl:message name="GetAllPortfoliosSoapOut">
     <wsdl:part name="parameters" element="tns:GetAllPortfoliosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPortfoliosAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="GetPortfolioDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPortfolioDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetPortfolioDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPortfolioDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPortfolioDetailsAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
   </wsdl:message>
   <wsdl:portType name="StockExchangeServiceSoap">
     <wsdl:operation name="GetAllStock">
@@ -185,6 +228,10 @@
       <wsdl:input message="tns:GetAllPortfoliosSoapIn" />
       <wsdl:output message="tns:GetAllPortfoliosSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetPortfolioDetails">
+      <wsdl:input message="tns:GetPortfolioDetailsSoapIn" />
+      <wsdl:output message="tns:GetPortfolioDetailsSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="StockExchangeServiceSoap" type="tns:StockExchangeServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -192,6 +239,7 @@
       <soap:operation soapAction="http://tempuri.org/GetAllStock" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetAllStockAuthSoapHd" part="AuthSoapHd" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -201,6 +249,7 @@
       <soap:operation soapAction="http://tempuri.org/GetStockPrice" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetStockPriceAuthSoapHd" part="AuthSoapHd" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -228,6 +277,7 @@
       <soap:operation soapAction="http://tempuri.org/CreatePortfolio" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:CreatePortfolioAuthSoapHd" part="AuthSoapHd" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -237,6 +287,17 @@
       <soap:operation soapAction="http://tempuri.org/GetAllPortfolios" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetAllPortfoliosAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPortfolioDetails">
+      <soap:operation soapAction="http://tempuri.org/GetPortfolioDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPortfolioDetailsAuthSoapHd" part="AuthSoapHd" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -249,6 +310,7 @@
       <soap12:operation soapAction="http://tempuri.org/GetAllStock" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetAllStockAuthSoapHd" part="AuthSoapHd" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
@@ -258,6 +320,7 @@
       <soap12:operation soapAction="http://tempuri.org/GetStockPrice" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetStockPriceAuthSoapHd" part="AuthSoapHd" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
@@ -285,6 +348,7 @@
       <soap12:operation soapAction="http://tempuri.org/CreatePortfolio" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:CreatePortfolioAuthSoapHd" part="AuthSoapHd" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
@@ -294,6 +358,17 @@
       <soap12:operation soapAction="http://tempuri.org/GetAllPortfolios" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetAllPortfoliosAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPortfolioDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetPortfolioDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPortfolioDetailsAuthSoapHd" part="AuthSoapHd" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />

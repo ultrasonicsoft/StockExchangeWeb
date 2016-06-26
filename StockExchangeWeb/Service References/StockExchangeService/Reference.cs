@@ -9,378 +9,358 @@
 //------------------------------------------------------------------------------
 
 namespace StockExchangeWeb.StockExchangeService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Stock", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class Stock : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        private double PriceField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string Code {
-            get {
-                return this.CodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
-                    this.CodeField = value;
-                    this.RaisePropertyChanged("Code");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
-        public double Price {
-            get {
-                return this.PriceField;
-            }
-            set {
-                if ((this.PriceField.Equals(value) != true)) {
-                    this.PriceField = value;
-                    this.RaisePropertyChanged("Price");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UserNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PasswordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EmailField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string UserName {
-            get {
-                return this.UserNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
-                    this.UserNameField = value;
-                    this.RaisePropertyChanged("UserName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string Password {
-            get {
-                return this.PasswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
-                    this.PasswordField = value;
-                    this.RaisePropertyChanged("Password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string Email {
-            get {
-                return this.EmailField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
-                    this.EmailField = value;
-                    this.RaisePropertyChanged("Email");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Portfolio", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class Portfolio : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UserIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private StockExchangeWeb.StockExchangeService.ArrayOfInt StockIdsField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string UserId {
-            get {
-                return this.UserIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserIdField, value) != true)) {
-                    this.UserIdField = value;
-                    this.RaisePropertyChanged("UserId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public StockExchangeWeb.StockExchangeService.ArrayOfInt StockIds {
-            get {
-                return this.StockIdsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StockIdsField, value) != true)) {
-                    this.StockIdsField = value;
-                    this.RaisePropertyChanged("StockIds");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfInt", Namespace="http://tempuri.org/", ItemName="int")]
-    [System.SerializableAttribute()]
-    public class ArrayOfInt : System.Collections.Generic.List<int> {
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="StockExchangeService.StockExchangeServiceSoap")]
     public interface StockExchangeServiceSoap {
         
-        // CODEGEN: Generating message contract since element name GetAllStockResult from namespace http://tempuri.org/ is not marked nillable
+        // CODEGEN: Generating message contract since message GetAllStockRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllStock", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         StockExchangeWeb.StockExchangeService.GetAllStockResponse GetAllStock(StockExchangeWeb.StockExchangeService.GetAllStockRequest request);
         
-        // CODEGEN: Generating message contract since element name stockCode from namespace http://tempuri.org/ is not marked nillable
+        // CODEGEN: Generating message contract since message GetStockPriceRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetStockPrice", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         StockExchangeWeb.StockExchangeService.GetStockPriceResponse GetStockPrice(StockExchangeWeb.StockExchangeService.GetStockPriceRequest request);
         
-        // CODEGEN: Generating message contract since element name userName from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Logon", ReplyAction="*")]
-        StockExchangeWeb.StockExchangeService.LogonResponse Logon(StockExchangeWeb.StockExchangeService.LogonRequest request);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool Logon(string userName, string password);
         
-        // CODEGEN: Generating message contract since element name newUser from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SignUp", ReplyAction="*")]
-        StockExchangeWeb.StockExchangeService.SignUpResponse SignUp(StockExchangeWeb.StockExchangeService.SignUpRequest request);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool SignUp(StockExchangeWeb.StockExchangeService.User newUser);
         
-        // CODEGEN: Generating message contract since element name newPortfolio from namespace http://tempuri.org/ is not marked nillable
+        // CODEGEN: Generating message contract since message CreatePortfolioRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CreatePortfolio", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         StockExchangeWeb.StockExchangeService.CreatePortfolioResponse CreatePortfolio(StockExchangeWeb.StockExchangeService.CreatePortfolioRequest request);
         
-        // CODEGEN: Generating message contract since element name userName from namespace http://tempuri.org/ is not marked nillable
+        // CODEGEN: Generating message contract since message GetAllPortfoliosRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllPortfolios", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         StockExchangeWeb.StockExchangeService.GetAllPortfoliosResponse GetAllPortfolios(StockExchangeWeb.StockExchangeService.GetAllPortfoliosRequest request);
+        
+        // CODEGEN: Generating message contract since message GetPortfolioDetailsRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPortfolioDetails", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        StockExchangeWeb.StockExchangeService.GetPortfolioDetailsResponse GetPortfolioDetails(StockExchangeWeb.StockExchangeService.GetPortfolioDetailsRequest request);
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class AuthSoapHd : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string strUserNameField;
+        
+        private string strPasswordField;
+        
+        private System.Xml.XmlAttribute[] anyAttrField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string strUserName {
+            get {
+                return this.strUserNameField;
+            }
+            set {
+                this.strUserNameField = value;
+                this.RaisePropertyChanged("strUserName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string strPassword {
+            get {
+                return this.strPasswordField;
+            }
+            set {
+                this.strPasswordField = value;
+                this.RaisePropertyChanged("strPassword");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAnyAttributeAttribute()]
+        public System.Xml.XmlAttribute[] AnyAttr {
+            get {
+                return this.anyAttrField;
+            }
+            set {
+                this.anyAttrField = value;
+                this.RaisePropertyChanged("AnyAttr");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Portfolio : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int idField;
+        
+        private string nameField;
+        
+        private string userIdField;
+        
+        private int[] stockIdsField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("Id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("Name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string UserId {
+            get {
+                return this.userIdField;
+            }
+            set {
+                this.userIdField = value;
+                this.RaisePropertyChanged("UserId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=3)]
+        public int[] StockIds {
+            get {
+                return this.stockIdsField;
+            }
+            set {
+                this.stockIdsField = value;
+                this.RaisePropertyChanged("StockIds");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class User : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int idField;
+        
+        private string userNameField;
+        
+        private string passwordField;
+        
+        private string emailField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("Id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string UserName {
+            get {
+                return this.userNameField;
+            }
+            set {
+                this.userNameField = value;
+                this.RaisePropertyChanged("UserName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Password {
+            get {
+                return this.passwordField;
+            }
+            set {
+                this.passwordField = value;
+                this.RaisePropertyChanged("Password");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Email {
+            get {
+                return this.emailField;
+            }
+            set {
+                this.emailField = value;
+                this.RaisePropertyChanged("Email");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Stock : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int idField;
+        
+        private string codeField;
+        
+        private string nameField;
+        
+        private double priceField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("Id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Code {
+            get {
+                return this.codeField;
+            }
+            set {
+                this.codeField = value;
+                this.RaisePropertyChanged("Code");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("Name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public double Price {
+            get {
+                return this.priceField;
+            }
+            set {
+                this.priceField = value;
+                this.RaisePropertyChanged("Price");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAllStock", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class GetAllStockRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAllStock", Namespace="http://tempuri.org/", Order=0)]
-        public StockExchangeWeb.StockExchangeService.GetAllStockRequestBody Body;
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public StockExchangeWeb.StockExchangeService.AuthSoapHd AuthSoapHd;
         
         public GetAllStockRequest() {
         }
         
-        public GetAllStockRequest(StockExchangeWeb.StockExchangeService.GetAllStockRequestBody Body) {
-            this.Body = Body;
+        public GetAllStockRequest(StockExchangeWeb.StockExchangeService.AuthSoapHd AuthSoapHd) {
+            this.AuthSoapHd = AuthSoapHd;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class GetAllStockRequestBody {
-        
-        public GetAllStockRequestBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAllStockResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class GetAllStockResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAllStockResponse", Namespace="http://tempuri.org/", Order=0)]
-        public StockExchangeWeb.StockExchangeService.GetAllStockResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public StockExchangeWeb.StockExchangeService.Stock[] GetAllStockResult;
         
         public GetAllStockResponse() {
         }
         
-        public GetAllStockResponse(StockExchangeWeb.StockExchangeService.GetAllStockResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetAllStockResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public StockExchangeWeb.StockExchangeService.Stock[] GetAllStockResult;
-        
-        public GetAllStockResponseBody() {
-        }
-        
-        public GetAllStockResponseBody(StockExchangeWeb.StockExchangeService.Stock[] GetAllStockResult) {
+        public GetAllStockResponse(StockExchangeWeb.StockExchangeService.Stock[] GetAllStockResult) {
             this.GetAllStockResult = GetAllStockResult;
         }
     }
@@ -388,33 +368,20 @@ namespace StockExchangeWeb.StockExchangeService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetStockPrice", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class GetStockPriceRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetStockPrice", Namespace="http://tempuri.org/", Order=0)]
-        public StockExchangeWeb.StockExchangeService.GetStockPriceRequestBody Body;
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public StockExchangeWeb.StockExchangeService.AuthSoapHd AuthSoapHd;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string stockCode;
         
         public GetStockPriceRequest() {
         }
         
-        public GetStockPriceRequest(StockExchangeWeb.StockExchangeService.GetStockPriceRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetStockPriceRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string stockCode;
-        
-        public GetStockPriceRequestBody() {
-        }
-        
-        public GetStockPriceRequestBody(string stockCode) {
+        public GetStockPriceRequest(StockExchangeWeb.StockExchangeService.AuthSoapHd AuthSoapHd, string stockCode) {
+            this.AuthSoapHd = AuthSoapHd;
             this.stockCode = stockCode;
         }
     }
@@ -422,33 +389,16 @@ namespace StockExchangeWeb.StockExchangeService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetStockPriceResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class GetStockPriceResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetStockPriceResponse", Namespace="http://tempuri.org/", Order=0)]
-        public StockExchangeWeb.StockExchangeService.GetStockPriceResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public double GetStockPriceResult;
         
         public GetStockPriceResponse() {
         }
         
-        public GetStockPriceResponse(StockExchangeWeb.StockExchangeService.GetStockPriceResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetStockPriceResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public double GetStockPriceResult;
-        
-        public GetStockPriceResponseBody() {
-        }
-        
-        public GetStockPriceResponseBody(double GetStockPriceResult) {
+        public GetStockPriceResponse(double GetStockPriceResult) {
             this.GetStockPriceResult = GetStockPriceResult;
         }
     }
@@ -456,173 +406,20 @@ namespace StockExchangeWeb.StockExchangeService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class LogonRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="Logon", Namespace="http://tempuri.org/", Order=0)]
-        public StockExchangeWeb.StockExchangeService.LogonRequestBody Body;
-        
-        public LogonRequest() {
-        }
-        
-        public LogonRequest(StockExchangeWeb.StockExchangeService.LogonRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class LogonRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string userName;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string password;
-        
-        public LogonRequestBody() {
-        }
-        
-        public LogonRequestBody(string userName, string password) {
-            this.userName = userName;
-            this.password = password;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class LogonResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="LogonResponse", Namespace="http://tempuri.org/", Order=0)]
-        public StockExchangeWeb.StockExchangeService.LogonResponseBody Body;
-        
-        public LogonResponse() {
-        }
-        
-        public LogonResponse(StockExchangeWeb.StockExchangeService.LogonResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class LogonResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool LogonResult;
-        
-        public LogonResponseBody() {
-        }
-        
-        public LogonResponseBody(bool LogonResult) {
-            this.LogonResult = LogonResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class SignUpRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="SignUp", Namespace="http://tempuri.org/", Order=0)]
-        public StockExchangeWeb.StockExchangeService.SignUpRequestBody Body;
-        
-        public SignUpRequest() {
-        }
-        
-        public SignUpRequest(StockExchangeWeb.StockExchangeService.SignUpRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class SignUpRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public StockExchangeWeb.StockExchangeService.User newUser;
-        
-        public SignUpRequestBody() {
-        }
-        
-        public SignUpRequestBody(StockExchangeWeb.StockExchangeService.User newUser) {
-            this.newUser = newUser;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class SignUpResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="SignUpResponse", Namespace="http://tempuri.org/", Order=0)]
-        public StockExchangeWeb.StockExchangeService.SignUpResponseBody Body;
-        
-        public SignUpResponse() {
-        }
-        
-        public SignUpResponse(StockExchangeWeb.StockExchangeService.SignUpResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class SignUpResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool SignUpResult;
-        
-        public SignUpResponseBody() {
-        }
-        
-        public SignUpResponseBody(bool SignUpResult) {
-            this.SignUpResult = SignUpResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CreatePortfolio", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class CreatePortfolioRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="CreatePortfolio", Namespace="http://tempuri.org/", Order=0)]
-        public StockExchangeWeb.StockExchangeService.CreatePortfolioRequestBody Body;
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public StockExchangeWeb.StockExchangeService.AuthSoapHd AuthSoapHd;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public StockExchangeWeb.StockExchangeService.Portfolio newPortfolio;
         
         public CreatePortfolioRequest() {
         }
         
-        public CreatePortfolioRequest(StockExchangeWeb.StockExchangeService.CreatePortfolioRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class CreatePortfolioRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public StockExchangeWeb.StockExchangeService.Portfolio newPortfolio;
-        
-        public CreatePortfolioRequestBody() {
-        }
-        
-        public CreatePortfolioRequestBody(StockExchangeWeb.StockExchangeService.Portfolio newPortfolio) {
+        public CreatePortfolioRequest(StockExchangeWeb.StockExchangeService.AuthSoapHd AuthSoapHd, StockExchangeWeb.StockExchangeService.Portfolio newPortfolio) {
+            this.AuthSoapHd = AuthSoapHd;
             this.newPortfolio = newPortfolio;
         }
     }
@@ -630,33 +427,16 @@ namespace StockExchangeWeb.StockExchangeService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CreatePortfolioResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class CreatePortfolioResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="CreatePortfolioResponse", Namespace="http://tempuri.org/", Order=0)]
-        public StockExchangeWeb.StockExchangeService.CreatePortfolioResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool CreatePortfolioResult;
         
         public CreatePortfolioResponse() {
         }
         
-        public CreatePortfolioResponse(StockExchangeWeb.StockExchangeService.CreatePortfolioResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class CreatePortfolioResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool CreatePortfolioResult;
-        
-        public CreatePortfolioResponseBody() {
-        }
-        
-        public CreatePortfolioResponseBody(bool CreatePortfolioResult) {
+        public CreatePortfolioResponse(bool CreatePortfolioResult) {
             this.CreatePortfolioResult = CreatePortfolioResult;
         }
     }
@@ -664,33 +444,20 @@ namespace StockExchangeWeb.StockExchangeService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAllPortfolios", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class GetAllPortfoliosRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAllPortfolios", Namespace="http://tempuri.org/", Order=0)]
-        public StockExchangeWeb.StockExchangeService.GetAllPortfoliosRequestBody Body;
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public StockExchangeWeb.StockExchangeService.AuthSoapHd AuthSoapHd;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string userName;
         
         public GetAllPortfoliosRequest() {
         }
         
-        public GetAllPortfoliosRequest(StockExchangeWeb.StockExchangeService.GetAllPortfoliosRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetAllPortfoliosRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string userName;
-        
-        public GetAllPortfoliosRequestBody() {
-        }
-        
-        public GetAllPortfoliosRequestBody(string userName) {
+        public GetAllPortfoliosRequest(StockExchangeWeb.StockExchangeService.AuthSoapHd AuthSoapHd, string userName) {
+            this.AuthSoapHd = AuthSoapHd;
             this.userName = userName;
         }
     }
@@ -698,34 +465,55 @@ namespace StockExchangeWeb.StockExchangeService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAllPortfoliosResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class GetAllPortfoliosResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAllPortfoliosResponse", Namespace="http://tempuri.org/", Order=0)]
-        public StockExchangeWeb.StockExchangeService.GetAllPortfoliosResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public StockExchangeWeb.StockExchangeService.Portfolio[] GetAllPortfoliosResult;
         
         public GetAllPortfoliosResponse() {
         }
         
-        public GetAllPortfoliosResponse(StockExchangeWeb.StockExchangeService.GetAllPortfoliosResponseBody Body) {
-            this.Body = Body;
+        public GetAllPortfoliosResponse(StockExchangeWeb.StockExchangeService.Portfolio[] GetAllPortfoliosResult) {
+            this.GetAllPortfoliosResult = GetAllPortfoliosResult;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetAllPortfoliosResponseBody {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetPortfolioDetails", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetPortfolioDetailsRequest {
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public StockExchangeWeb.StockExchangeService.Portfolio[] GetAllPortfoliosResult;
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public StockExchangeWeb.StockExchangeService.AuthSoapHd AuthSoapHd;
         
-        public GetAllPortfoliosResponseBody() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int portfolioId;
+        
+        public GetPortfolioDetailsRequest() {
         }
         
-        public GetAllPortfoliosResponseBody(StockExchangeWeb.StockExchangeService.Portfolio[] GetAllPortfoliosResult) {
-            this.GetAllPortfoliosResult = GetAllPortfoliosResult;
+        public GetPortfolioDetailsRequest(StockExchangeWeb.StockExchangeService.AuthSoapHd AuthSoapHd, int portfolioId) {
+            this.AuthSoapHd = AuthSoapHd;
+            this.portfolioId = portfolioId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetPortfolioDetailsResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetPortfolioDetailsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public StockExchangeWeb.StockExchangeService.Stock[] GetPortfolioDetailsResult;
+        
+        public GetPortfolioDetailsResponse() {
+        }
+        
+        public GetPortfolioDetailsResponse(StockExchangeWeb.StockExchangeService.Stock[] GetPortfolioDetailsResult) {
+            this.GetPortfolioDetailsResult = GetPortfolioDetailsResult;
         }
     }
     
@@ -761,11 +549,11 @@ namespace StockExchangeWeb.StockExchangeService {
             return base.Channel.GetAllStock(request);
         }
         
-        public StockExchangeWeb.StockExchangeService.Stock[] GetAllStock() {
+        public StockExchangeWeb.StockExchangeService.Stock[] GetAllStock(StockExchangeWeb.StockExchangeService.AuthSoapHd AuthSoapHd) {
             StockExchangeWeb.StockExchangeService.GetAllStockRequest inValue = new StockExchangeWeb.StockExchangeService.GetAllStockRequest();
-            inValue.Body = new StockExchangeWeb.StockExchangeService.GetAllStockRequestBody();
+            inValue.AuthSoapHd = AuthSoapHd;
             StockExchangeWeb.StockExchangeService.GetAllStockResponse retVal = ((StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap)(this)).GetAllStock(inValue);
-            return retVal.Body.GetAllStockResult;
+            return retVal.GetAllStockResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -773,39 +561,20 @@ namespace StockExchangeWeb.StockExchangeService {
             return base.Channel.GetStockPrice(request);
         }
         
-        public double GetStockPrice(string stockCode) {
+        public double GetStockPrice(StockExchangeWeb.StockExchangeService.AuthSoapHd AuthSoapHd, string stockCode) {
             StockExchangeWeb.StockExchangeService.GetStockPriceRequest inValue = new StockExchangeWeb.StockExchangeService.GetStockPriceRequest();
-            inValue.Body = new StockExchangeWeb.StockExchangeService.GetStockPriceRequestBody();
-            inValue.Body.stockCode = stockCode;
+            inValue.AuthSoapHd = AuthSoapHd;
+            inValue.stockCode = stockCode;
             StockExchangeWeb.StockExchangeService.GetStockPriceResponse retVal = ((StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap)(this)).GetStockPrice(inValue);
-            return retVal.Body.GetStockPriceResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StockExchangeWeb.StockExchangeService.LogonResponse StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap.Logon(StockExchangeWeb.StockExchangeService.LogonRequest request) {
-            return base.Channel.Logon(request);
+            return retVal.GetStockPriceResult;
         }
         
         public bool Logon(string userName, string password) {
-            StockExchangeWeb.StockExchangeService.LogonRequest inValue = new StockExchangeWeb.StockExchangeService.LogonRequest();
-            inValue.Body = new StockExchangeWeb.StockExchangeService.LogonRequestBody();
-            inValue.Body.userName = userName;
-            inValue.Body.password = password;
-            StockExchangeWeb.StockExchangeService.LogonResponse retVal = ((StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap)(this)).Logon(inValue);
-            return retVal.Body.LogonResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StockExchangeWeb.StockExchangeService.SignUpResponse StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap.SignUp(StockExchangeWeb.StockExchangeService.SignUpRequest request) {
-            return base.Channel.SignUp(request);
+            return base.Channel.Logon(userName, password);
         }
         
         public bool SignUp(StockExchangeWeb.StockExchangeService.User newUser) {
-            StockExchangeWeb.StockExchangeService.SignUpRequest inValue = new StockExchangeWeb.StockExchangeService.SignUpRequest();
-            inValue.Body = new StockExchangeWeb.StockExchangeService.SignUpRequestBody();
-            inValue.Body.newUser = newUser;
-            StockExchangeWeb.StockExchangeService.SignUpResponse retVal = ((StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap)(this)).SignUp(inValue);
-            return retVal.Body.SignUpResult;
+            return base.Channel.SignUp(newUser);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -813,12 +582,12 @@ namespace StockExchangeWeb.StockExchangeService {
             return base.Channel.CreatePortfolio(request);
         }
         
-        public bool CreatePortfolio(StockExchangeWeb.StockExchangeService.Portfolio newPortfolio) {
+        public bool CreatePortfolio(StockExchangeWeb.StockExchangeService.AuthSoapHd AuthSoapHd, StockExchangeWeb.StockExchangeService.Portfolio newPortfolio) {
             StockExchangeWeb.StockExchangeService.CreatePortfolioRequest inValue = new StockExchangeWeb.StockExchangeService.CreatePortfolioRequest();
-            inValue.Body = new StockExchangeWeb.StockExchangeService.CreatePortfolioRequestBody();
-            inValue.Body.newPortfolio = newPortfolio;
+            inValue.AuthSoapHd = AuthSoapHd;
+            inValue.newPortfolio = newPortfolio;
             StockExchangeWeb.StockExchangeService.CreatePortfolioResponse retVal = ((StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap)(this)).CreatePortfolio(inValue);
-            return retVal.Body.CreatePortfolioResult;
+            return retVal.CreatePortfolioResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -826,12 +595,25 @@ namespace StockExchangeWeb.StockExchangeService {
             return base.Channel.GetAllPortfolios(request);
         }
         
-        public StockExchangeWeb.StockExchangeService.Portfolio[] GetAllPortfolios(string userName) {
+        public StockExchangeWeb.StockExchangeService.Portfolio[] GetAllPortfolios(StockExchangeWeb.StockExchangeService.AuthSoapHd AuthSoapHd, string userName) {
             StockExchangeWeb.StockExchangeService.GetAllPortfoliosRequest inValue = new StockExchangeWeb.StockExchangeService.GetAllPortfoliosRequest();
-            inValue.Body = new StockExchangeWeb.StockExchangeService.GetAllPortfoliosRequestBody();
-            inValue.Body.userName = userName;
+            inValue.AuthSoapHd = AuthSoapHd;
+            inValue.userName = userName;
             StockExchangeWeb.StockExchangeService.GetAllPortfoliosResponse retVal = ((StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap)(this)).GetAllPortfolios(inValue);
-            return retVal.Body.GetAllPortfoliosResult;
+            return retVal.GetAllPortfoliosResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        StockExchangeWeb.StockExchangeService.GetPortfolioDetailsResponse StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap.GetPortfolioDetails(StockExchangeWeb.StockExchangeService.GetPortfolioDetailsRequest request) {
+            return base.Channel.GetPortfolioDetails(request);
+        }
+        
+        public StockExchangeWeb.StockExchangeService.Stock[] GetPortfolioDetails(StockExchangeWeb.StockExchangeService.AuthSoapHd AuthSoapHd, int portfolioId) {
+            StockExchangeWeb.StockExchangeService.GetPortfolioDetailsRequest inValue = new StockExchangeWeb.StockExchangeService.GetPortfolioDetailsRequest();
+            inValue.AuthSoapHd = AuthSoapHd;
+            inValue.portfolioId = portfolioId;
+            StockExchangeWeb.StockExchangeService.GetPortfolioDetailsResponse retVal = ((StockExchangeWeb.StockExchangeService.StockExchangeServiceSoap)(this)).GetPortfolioDetails(inValue);
+            return retVal.GetPortfolioDetailsResult;
         }
     }
 }

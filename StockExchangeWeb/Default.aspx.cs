@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using StockExchangeWeb.StockExchangeService;
 
 namespace StockExchangeWeb
 {
@@ -17,14 +18,19 @@ namespace StockExchangeWeb
             {
                 WelcomeMessage.Text = "Welcome " + HttpContext.Current.User.Identity.Name + "!";
                 LoadAllStocks();
-                
+
             }
         }
 
         private void LoadAllStocks()
         {
             var service = new StockExchangeService.StockExchangeServiceSoapClient();
-            var allStocks = service.GetAllStock();
+            var objAuthSoapHeader = new AuthSoapHd
+            {
+                strUserName = "TestUser",
+                strPassword = "TestPassword"
+            };
+            var allStocks = service.GetAllStock(objAuthSoapHeader);
             gdvAllStocks.DataSource = allStocks;
             gdvAllStocks.DataBind();
         }
@@ -38,7 +44,12 @@ namespace StockExchangeWeb
         protected void GetStockPrice_Click(object sender, EventArgs e)
         {
             var service = new StockExchangeService.StockExchangeServiceSoapClient();
-            var stockPrice = service.GetStockPrice(StockSymbol.Text);
+            var objAuthSoapHeader = new AuthSoapHd
+            {
+                strUserName = "TestUser",
+                strPassword = "TestPassword"
+            };
+            var stockPrice = service.GetStockPrice(objAuthSoapHeader, StockSymbol.Text);
             if (stockPrice == double.MinValue)
             {
                 lblStockPrice.Text = "Invalid stock symbol provided.";

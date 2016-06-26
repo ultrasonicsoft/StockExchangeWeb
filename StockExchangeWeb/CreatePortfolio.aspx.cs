@@ -23,7 +23,12 @@ namespace StockExchangeWeb
             try
             {
                 var service = new StockExchangeService.StockExchangeServiceSoapClient();
-                var allStocks = service.GetAllStock().ToList();
+                var objAuthSoapHeader = new AuthSoapHd
+                {
+                    strUserName = "TestUser",
+                    strPassword = "TestPassword"
+                };
+                var allStocks = service.GetAllStock(objAuthSoapHeader).ToList();
                 ddlAllStocks.DataTextField = "Code";
                 ddlAllStocks.DataValueField = "Code";
                 ddlAllStocks.DataSource = allStocks;
@@ -64,7 +69,14 @@ namespace StockExchangeWeb
             try
             {
                 var service = new StockExchangeService.StockExchangeServiceSoapClient();
-                var allStocks = service.GetAllStock().ToList();
+
+                var objAuthSoapHeader = new AuthSoapHd
+                {
+                    strUserName = "TestUser",
+                    strPassword = "TestPassword"
+                };
+
+                var allStocks = service.GetAllStock(objAuthSoapHeader).ToList();
 
                 var selectedStockCode = ddlAllStocks.SelectedItem;
                 var selectedStock = allStocks.FirstOrDefault(x => x.Code == selectedStockCode.ToString());
@@ -121,16 +133,22 @@ namespace StockExchangeWeb
                 var newPortfolio = new StockExchangeService.Portfolio
                 {
                     Name = PortfolioName.Text,
-                    UserId = HttpContext.Current.User.Identity.Name,
-                    StockIds = new ArrayOfInt()
+                    UserId = HttpContext.Current.User.Identity.Name
                 };
+                var stockIds = new List<int>();
+
                 foreach (var portfolioStock in portfolioStocks)
                 {
-                    newPortfolio.StockIds.Add(portfolioStock.Id);
+                    stockIds.Add(portfolioStock.Id);
                 }
-
+                newPortfolio.StockIds = stockIds.ToArray();
                 var service = new StockExchangeService.StockExchangeServiceSoapClient();
-                service.CreatePortfolio(newPortfolio);
+                var objAuthSoapHeader = new AuthSoapHd
+                {
+                    strUserName = "TestUser",
+                    strPassword = "TestPassword"
+                };
+                service.CreatePortfolio(objAuthSoapHeader, newPortfolio);
             }
             catch (Exception exception)
             {
