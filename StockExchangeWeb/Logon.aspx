@@ -8,7 +8,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <h3>Logon Page</h3>
+        <h3>Stock Exchange System</h3>
+        <h4>Login</h4>
         <table>
             <tr>
                 <td>E-mail address:</td>
@@ -44,8 +45,19 @@
         <asp:Button ID="Submit1" OnClick="Logon_Click" Text="Log On"
             runat="server" />
         <p>
-            <asp:Label ID="Msg" ForeColor="red" runat="server" />
+            <asp:Label ID="Msg" ForeColor="red" runat="server"  />
         </p>
+        
+        <h4>Register</h4>
+        
+        <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser">
+            <WizardSteps>
+                <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
+                </asp:CreateUserWizardStep>
+                <asp:CompleteWizardStep ID="CompleteWizardStep1" runat="server">
+                </asp:CompleteWizardStep>
+            </WizardSteps>
+        </asp:CreateUserWizard>
     </form>
 </body>
 </html>

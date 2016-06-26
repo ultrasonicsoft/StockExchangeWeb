@@ -29,5 +29,21 @@ namespace StockExchangeWeb
                 Msg.Text = "Invalid credentials. Please try again.";
             }
         }
+
+        protected void CreateUserWizard1_CreatedUser(object sender, EventArgs e)
+        {
+            var userName = CreateUserWizard1.UserName;
+            var password = CreateUserWizard1.Password;
+            var email = CreateUserWizard1.Email;
+            StockExchangeService.User newUser = new StockExchangeService.User
+            {
+                Email = email,
+                Password = password,
+                UserName = userName
+            };
+
+            StockExchangeService.StockExchangeServiceSoapClient service = new StockExchangeService.StockExchangeServiceSoapClient();
+            service.SignUp(newUser);
+        }
     }
 }
