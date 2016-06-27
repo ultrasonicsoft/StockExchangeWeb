@@ -64,6 +64,7 @@
     <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <None Include="Properties\PublishProfiles\Test.pubxml" />
     <None Include="Service References\StockExchangeService\StockExchangeService.disco" />
     <None Include="Service References\StockExchangeService\configuration91.svcinfo" />
     <None Include="Service References\StockExchangeService\configuration.svcinfo" />
@@ -118,6 +119,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="WebServiceAuthenticationManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

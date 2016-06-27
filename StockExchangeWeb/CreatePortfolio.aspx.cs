@@ -23,11 +23,7 @@ namespace StockExchangeWeb
             try
             {
                 var service = new StockExchangeService.StockExchangeServiceSoapClient();
-                var objAuthSoapHeader = new AuthSoapHd
-                {
-                    strUserName = "TestUser",
-                    strPassword = "TestPassword"
-                };
+                var objAuthSoapHeader = WebServiceAuthenticationManager.GetAuthSoapHd();
                 var allStocks = service.GetAllStock(objAuthSoapHeader).ToList();
                 ddlAllStocks.DataTextField = "Code";
                 ddlAllStocks.DataValueField = "Code";
@@ -70,12 +66,7 @@ namespace StockExchangeWeb
             {
                 var service = new StockExchangeService.StockExchangeServiceSoapClient();
 
-                var objAuthSoapHeader = new AuthSoapHd
-                {
-                    strUserName = "TestUser",
-                    strPassword = "TestPassword"
-                };
-
+                var objAuthSoapHeader = WebServiceAuthenticationManager.GetAuthSoapHd();
                 var allStocks = service.GetAllStock(objAuthSoapHeader).ToList();
 
                 var selectedStockCode = ddlAllStocks.SelectedItem;
@@ -143,11 +134,8 @@ namespace StockExchangeWeb
                 }
                 newPortfolio.StockIds = stockIds.ToArray();
                 var service = new StockExchangeService.StockExchangeServiceSoapClient();
-                var objAuthSoapHeader = new AuthSoapHd
-                {
-                    strUserName = "TestUser",
-                    strPassword = "TestPassword"
-                };
+                var objAuthSoapHeader = WebServiceAuthenticationManager.GetAuthSoapHd();
+
                 service.CreatePortfolio(objAuthSoapHeader, newPortfolio);
             }
             catch (Exception exception)

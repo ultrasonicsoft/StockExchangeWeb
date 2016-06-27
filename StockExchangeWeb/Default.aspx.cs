@@ -24,15 +24,20 @@ namespace StockExchangeWeb
 
         private void LoadAllStocks()
         {
-            var service = new StockExchangeService.StockExchangeServiceSoapClient();
-            var objAuthSoapHeader = new AuthSoapHd
+            try
             {
-                strUserName = "TestUser",
-                strPassword = "TestPassword"
-            };
-            var allStocks = service.GetAllStock(objAuthSoapHeader);
-            gdvAllStocks.DataSource = allStocks;
-            gdvAllStocks.DataBind();
+                var service = new StockExchangeService.StockExchangeServiceSoapClient();
+                var objAuthSoapHeader = WebServiceAuthenticationManager.GetAuthSoapHd();
+
+                var allStocks = service.GetAllStock(objAuthSoapHeader);
+                gdvAllStocks.DataSource = allStocks;
+                gdvAllStocks.DataBind();
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            
         }
 
         protected void Signout_Click(object sender, EventArgs e)
@@ -43,22 +48,26 @@ namespace StockExchangeWeb
 
         protected void GetStockPrice_Click(object sender, EventArgs e)
         {
-            var service = new StockExchangeService.StockExchangeServiceSoapClient();
-            var objAuthSoapHeader = new AuthSoapHd
+            try
             {
-                strUserName = "TestUser",
-                strPassword = "TestPassword"
-            };
-            var stockPrice = service.GetStockPrice(objAuthSoapHeader, StockSymbol.Text);
-            if (stockPrice == double.MinValue)
-            {
-                lblStockPrice.Text = "Invalid stock symbol provided.";
+                var service = new StockExchangeService.StockExchangeServiceSoapClient();
+                var objAuthSoapHeader = WebServiceAuthenticationManager.GetAuthSoapHd();
+                var stockPrice = service.GetStockPrice(objAuthSoapHeader, StockSymbol.Text);
+                if (stockPrice == double.MinValue)
+                {
+                    lblStockPrice.Text = "Invalid stock symbol provided.";
+                }
+                else
+                {
+                    lblStockPrice.Text = string.Format("{0} stock is currently trading at price: {1}", StockSymbol.Text,
+                        stockPrice.ToString(CultureInfo.InvariantCulture));
+                }
             }
-            else
+            catch (Exception exception)
             {
-                lblStockPrice.Text = string.Format("{0} stock is currently trading at price: {1}", StockSymbol.Text,
-                    stockPrice.ToString(CultureInfo.InvariantCulture));
+                throw exception;
             }
+            
         }
 
         protected void StockPriceRefreshTimer_Tick1(object sender, EventArgs e)
